@@ -38,7 +38,7 @@
 
       ?>
     <th scope="row">{{$producto->id}}</th>
-    <td ><?php  echo preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($data[0]->name)); ?></td>
+    <td ><?php  echo str_replace('"', "", json_encode($data[0]->name)); ?></td>
     <td ><?php  echo preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($data[0]->phone_number)); ?></td>
     <td>{{$producto->nombreProducto}}</td>
     <td>${{$producto->precio}}</td>

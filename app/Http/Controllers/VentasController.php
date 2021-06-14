@@ -44,7 +44,7 @@ class VentasController extends Controller
         if($request->get('cliente') == 0 || $request->get('producto') == 0 || $request->get('cantidad') <= 0){
             return redirect('/ventas/create');
         }else{
-        
+            $now = new \DateTime();
             $producto = Productos::find($request->get('producto'));
 
             $total = $producto->precio * $request->get('cantidad');
@@ -53,7 +53,8 @@ class VentasController extends Controller
                 'idCliente' => $request->get('cliente'),
                 'idProducto' => $request->get('producto'),
                 'cantidad' => $request->get('cantidad'),
-                'total' => $total
+                'total' => $total,
+                'fecha' => $now->format('Y-m-d')
             ]);
             
             return redirect('/ventas');

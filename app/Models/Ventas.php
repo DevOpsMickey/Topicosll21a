@@ -22,6 +22,7 @@ class Ventas extends Authenticatable
         'idProducto',
         'cantidad',
         'total',
+        'fecha'
     ];
 
     /**

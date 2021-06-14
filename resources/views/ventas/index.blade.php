@@ -25,6 +25,7 @@
     <th scope="col">Producto</th>
     <th scope="col">Cantidad</th>
     <th scope="col">Total</th>
+    <th scope="col">Fecha</th>
     <th scope="col">Acciones</th>
 
   </tr>
@@ -43,8 +44,9 @@
     <th scope="row">{{$venta->id}}</th>
     <td><?php echo $cliente->name ?></td>
     <td><?php echo $producto->nombreProducto ?></td>
-    <td>{{$venta->cantidad}}</td>
+    <td class="text-center">{{$venta->cantidad}}</td>
     <td>${{$venta->total}}</td>
+    <td>{{$venta->fecha}}</td>
     <td>
       <form method="POST" action="{{route('ventas.destroy', $venta->id)}}">
       <a href="{{route('ventas.show', $venta->id)}}">
@@ -58,6 +60,7 @@
           <button type="submit" class="btn btn-danger" > <i class="nav-icon fas fa-trash"></i> Eliminar</button>
       </form>
     </td>
+    
   </tr>
   @endforeach
 </tbody>

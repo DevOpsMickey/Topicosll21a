@@ -1,11 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container ">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+        <div class="col-md-8 ">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-header h1">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -53,23 +53,20 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary col-md-9 " >
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0 mt-2">
+                            <div class="col-md-8 offset-md-4 ">
+                                <a href="/register" class="text-white btn btn-secondary col-md-9">Sign up</a>
                             </div>
                         </div>
                     </form>
-                    <div style="margin:auto;" class="mt-4 float-right">
-                        <button class="btn btn-secondary" style="width: 200px;">
-                            <a href="/register" class="text-white">Sign up</a>
-                        </button>
-                    </div>
+
                 </div>
             </div>
         </div>

@@ -32,12 +32,12 @@
                                         if ($venta->idCliente == $cliente->id) {
                                                 echo '<option 
                                             value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->id)).'" selected>'.
-                                            preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->name)).'   
+                                            str_replace('"', "", json_encode($cliente->name)).'   
                                             </option>';
                                         }else{
                                             echo '<option 
                                             value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->id)).'">'.
-                                            preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->name)).'   
+                                            str_replace('"', "", json_encode($cliente->name)).'   
                                             </option>';
                                         }
                                     }    

@@ -38,6 +38,7 @@ class VentasFactory extends Factory
             'idProducto' => $producto->id,
             'cantidad' => rand(10,100),
             'total' => $total,
+            'fecha' => $this->faker->dateTimeBetween($startDate = '-30 days', $endDate = 'now')->format('Y-m-d')
         ];
     }
 

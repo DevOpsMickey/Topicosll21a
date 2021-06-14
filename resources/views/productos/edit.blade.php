@@ -31,12 +31,12 @@
                                             if ($producto->idProveedor == $proveedor->id) {
                                                     echo '<option 
                                                 value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->id)).'" selected>'.
-                                                preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->name)).'   
+                                                str_replace('"', "", json_encode($proveedor->name)).'   
                                                 </option>';
                                             }else{
                                                 echo '<option 
                                                 value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->id)).'">'.
-                                                preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->name)).'   
+                                                str_replace('"', "", json_encode($proveedor->name)).'   
                                                 </option>';
                                             }
                                         }    

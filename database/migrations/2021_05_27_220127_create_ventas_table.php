@@ -21,6 +21,7 @@ class CreateVentasTable extends Migration
             $table->foreign('idProducto')->references('id')->on('productos')->onDelete('cascade');
             $table->integer('cantidad');
             $table->double('total');
+            $table->date('fecha');
             $table->timestamps();
         });
     }

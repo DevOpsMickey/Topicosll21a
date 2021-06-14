@@ -23,6 +23,7 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/Unauthorized', [App\Http\Controllers\HomeController::class, 'permissionsOrRoles'])->name('negar');
 
 Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('indexUser')->middleware(['auth', 'role:Admin']);
 Route::get('usuarios/create', [App\Http\Controllers\UserController::class, 'create'])->name('usuarios.create')->middleware(['auth', 'role:Admin']);
@@ -47,11 +48,11 @@ Route::get('clientes/create', [App\Http\Controllers\ClientesController::class, '
 Route::post('clientes', [App\Http\Controllers\ClientesController::class, 'store'])->name('cliente.store')->middleware(['auth', 'role:Admin']);
 Route::get('clientes/{id}/edit', [App\Http\Controllers\ClientesController::class, 'edit'])->name('cliente.edit')->middleware(['auth', 'role:Admin']);
 Route::put('clientes/{id}', [App\Http\Controllers\ClientesController::class, 'update'])->name('cliente.update')->middleware(['auth', 'role:Admin']);
-Route::get('clientes/{id}', [App\Http\Controllers\ClientesController::class, 'show'])->name('cliente.show')->middleware(['auth', 'role:Admin']);
+Route::get('clientes/{id}', [App\Http\Controllers\ClientesController::class, 'show'])->name('cliente.show')->middleware(['auth', 'role:Admin|Cliente']);
 Route::put('clientes/delete/{id}', [App\Http\Controllers\ClientesController::class, 'destroy'])->name('cliente.destroy')->middleware(['auth', 'role:Admin']);
 
 
-Route::get('productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('indexProductos')->middleware(['auth', 'role:Admin']);
+Route::get('productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('indexProductos')->middleware(['auth', 'role:Admin|Cliente|Proveedor']);
 Route::get('productos/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('productos.create')->middleware(['auth', 'role:Admin']);
 Route::post('productos', [App\Http\Controllers\ProductosController::class, 'store'])->name('productos.store')->middleware(['auth', 'role:Admin']);
 Route::get('productos/{id}/edit', [App\Http\Controllers\ProductosController::class, 'edit'])->name('productos.edit')->middleware(['auth', 'role:Admin']);
@@ -65,6 +66,6 @@ Route::get('ventas/create', [App\Http\Controllers\VentasController::class, 'crea
 Route::post('ventas', [App\Http\Controllers\VentasController::class, 'store'])->name('ventas.store')->middleware(['auth', 'role:Admin']);
 Route::get('ventas/{id}/edit', [App\Http\Controllers\VentasController::class, 'edit'])->name('ventas.edit')->middleware(['auth', 'role:Admin']);
 Route::put('ventas/{id}', [App\Http\Controllers\VentasController::class, 'update'])->name('ventas.update')->middleware(['auth', 'role:Admin']);
-Route::get('ventas/{id}', [App\Http\Controllers\VentasController::class, 'show'])->name('ventas.show')->middleware(['auth', 'role:Admin']);
+Route::get('ventas/{id}', [App\Http\Controllers\VentasController::class, 'show'])->name('ventas.show')->middleware(['auth', 'role:Admin|Proveedor']);
 Route::put('ventas/delete/{id}', [App\Http\Controllers\VentasController::class, 'destroy'])->name('ventas.destroy')->middleware(['auth', 'role:Admin']);
 

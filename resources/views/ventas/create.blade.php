@@ -21,7 +21,7 @@
                             @csrf
                             <?php 
                             $clientes = DB::select('select * from clientes');
-                            $productos = DB::select('select * from productos');
+                            $productos = DB::select('select productos.*, proveedors.name from productos INNER JOIN proveedors ON productos.idProveedor = proveedors.id');
                             ?>
                             <div class="form-group">
                                 <label for="cliente">Cliente:</label>
@@ -31,7 +31,7 @@
                                         foreach ($clientes as $cliente) {
                                                 echo '<option 
                                                 value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->id)).'">'.
-                                                preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->name)).'   
+                                                str_replace('"', "", json_encode($cliente->name)).'   
                                                 </option>';
                                         }    
                                     ?>
@@ -45,12 +45,14 @@
                                         foreach ($productos as $producto) {
                 
                                                 echo '<option 
-                                                value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($producto->id)).'">'.
-                                                preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($producto->nombreProducto)).'   
+                                                value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($producto->id)).'">'.'Proveedor: "'.
+                                                str_replace('"', "", json_encode($producto->name)).'"  ('.
+                                                str_replace('"', "", json_encode($producto->nombreProducto)).')   
                                                 </option>';
                                         }    
                                     ?>
                                 </select>
+                                
                             </div>
                             <div class="form-group">
                                 <label for="cantidad">Cantidad:</label>

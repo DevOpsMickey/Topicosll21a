@@ -38,4 +38,13 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function render($request, Throwable $exception)
+{
+    if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+        return redirect('/Unauthorized')->with('message', 'Sin permiso.');
+    }
+
+    return parent::render($request, $exception);
+}
+    
 }
