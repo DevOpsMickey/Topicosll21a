@@ -20,6 +20,10 @@ class Proveedor extends Authenticatable
     protected $guard_name = 'web';
     protected $fillable = [
         'name',
+        'pais',
+        'estado',
+        'ciudad',
+        'direccion',
         'email',
         'phone_number'
     ];

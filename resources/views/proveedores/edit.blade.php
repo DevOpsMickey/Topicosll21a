@@ -12,8 +12,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Editar información del proveedor</div>
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-header text-center">Editar información del proveedor</div>
     
                     <div class="card-body" style="width: 400px; margin:auto;">
                         <form action="{{route('proveedor.update',$proveedor->id)}}" method="POST">
@@ -30,8 +30,28 @@
                             </div>
                             <div class="form-group">
                                 <label for="tel">Teléfono:</label>
-                                <input type="tel" class="form-control" name="tel"  placeholder="Ingresa tu correo"
+                                <input type="tel" class="form-control" name="tel" 
                                 value="{{$proveedor->phone_number}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tel">Pais:</label>
+                                <input type="text" class="form-control" name="pais"  
+                                value="{{$proveedor->pais}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado:</label>
+                                <input type="text" class="form-control" name="estado" 
+                                value="{{$proveedor->estado}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad:</label>
+                                <input type="text" class="form-control" name="ciudad"  
+                                value="{{$proveedor->ciudad}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion">Dirección:</label>
+                                <input type="text" class="form-control" name="direccion"  
+                                value="{{$proveedor->direccion}}" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                             <button type="btn" class="btn btn-danger">Cancelar</button>

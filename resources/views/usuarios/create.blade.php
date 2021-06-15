@@ -13,8 +13,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <div class="card">
-                    <div class="card-header">Ingresa la información del usuarios</div>
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-header text-center">Ingresa la información del usuarios</div>
     
                     <div class="card-body">
 
@@ -31,12 +31,13 @@
                             <div class="form-group">
                                 <label for="password">Password:</label>
                                 <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                <small id="emailHelp" class="form-text text-muted">Nunca compartas tu contraseña.</small>
+                                
                                 </div>
+                                <br>
                             <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="btn" class="btn btn-danger">Cancelar</button>
+                            <a href="/usuarios" class="btn btn-danger">Cancelar</a>
                         </form>
-
+                        
                     </div>
                 </div>
             </div>

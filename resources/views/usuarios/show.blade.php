@@ -12,8 +12,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Información del usuario</div>
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-header text-center">Información del usuario</div>
                     <div class="card-body">
                     <p class="h4"><strong>Nombre:</strong>  {{$user->name}}</p>
                     <p class="h4"><strong>Email:</strong> {{$user->email}}</p>

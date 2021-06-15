@@ -22,12 +22,17 @@ class ClientesFactory extends Factory
      */
     public function definition()
     {
+        $cliente = $this->faker;
         return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
+            'name' => $cliente->name,
+            'email' => $cliente->unique()->safeEmail,
             'email_verified_at' => now(),
-            'phone_number' => $this->faker->phoneNumber,
+            'phone_number' => $cliente->phoneNumber,
             'remember_token' => Str::random(10),
+            'pais' => 'Estados Unidos',
+            'estado' => $cliente->state,
+            'ciudad' => $cliente->city,
+            'direccion' => $cliente->streetAddress
         ];
     }
 

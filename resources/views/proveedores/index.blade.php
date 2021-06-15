@@ -22,6 +22,7 @@
   <tr class="bg-dark"> 
     <th scope="col">ID</th>
     <th scope="col">Nombre</th>
+    <th scope="col">País</th>
     <th scope="col">Correo</th>
     <th scope="col">Contacto</th>
     <th scope="col">Acciones</th>
@@ -33,6 +34,7 @@
   <tr>
     <th scope="row">{{$proveedor->id}}</th>
     <td>{{$proveedor->name}}</td>
+    <td>{{$proveedor->pais}}</td>
     <td>{{$proveedor->email}}</td>
     <td>{{$proveedor->phone_number}}</td>
     <td>

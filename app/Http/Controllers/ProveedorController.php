@@ -45,11 +45,15 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         
-        if (request('name') == '' || request('email') == ''){
+        if (request('name') == '' || request('email') == '' || request('pais') == "" || request('estado') == '' || request('ciudad') == '' || request('direccion') == ''){
             return redirect('/proveedor/create');
         }else{
             Proveedor::create([
                 'name' => request('name'),
+                'pais' => request('pais'),
+                'estado' => request('estado'),
+                'ciudad' => request('ciudad'),
+                'direccion' => request('direccion'),
                 'email' => request('email'),
                 'phone_number' => request('tel')
             ]);
@@ -97,7 +101,10 @@ class ProveedorController extends Controller
         $proveedor->name = $request->get('name');
         $proveedor->email = $request->get('email');
         $proveedor->phone_number = $request->get('tel');
-
+        $proveedor->pais = $request->get('pais');
+        $proveedor->estado = $request->get('estado');
+        $proveedor->ciudad = $request->get('ciudad');
+        $proveedor->direccion = $request->get('direccion');
         $proveedor->update();
         
         return redirect('/proveedor');

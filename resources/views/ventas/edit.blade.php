@@ -12,8 +12,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Editar información de venta</div>
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-header text-center">Editar información de venta</div>
     
                     <div class="card-body" style="width: 400px; margin:auto;">
                         <form action="{{route('ventas.update',$venta->id)}}" method="POST">
@@ -72,7 +72,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <button type="btn" class="btn btn-danger">Cancelar</button>
+                                    <a href="/ventas" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </div>
                         </form>

@@ -21,6 +21,7 @@
     <thead>
   <tr class="bg-dark">
     <th scope="col">ID</th>
+    <th scope="col">País</th>
     <th scope="col">Nombre</th>
     <th scope="col">Correo</th>
     <th scope="col">Acciones</th>
@@ -31,6 +32,7 @@
 @foreach ($clientes as $cliente)
   <tr>
     <th scope="row">{{$cliente->id}}</th>
+    <td>{{$cliente->pais}}</td>
     <td>{{$cliente->name}}</td>
     <td>{{$cliente->email}}</td>
     <td>

@@ -11,8 +11,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <div class="card">
-                    <div class="card-header">Ingresa la información del producto</div>
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-header text-center">Ingresa la información del producto</div>
     
                     <div class="card-body">
 
@@ -44,7 +44,8 @@
                             <input type="number" step="0.01" name="precio"  class="form-control" required >
                         </div>
                         <button type="submit" class="btn btn-primary">Guardar</button>
-                        <button type="btn" class="btn btn-danger">Cancelar</button>
+                        <a href="/productos" class="btn btn-danger">Cancelar</a>
+
                     </form>
 
                     </div>

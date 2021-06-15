@@ -12,8 +12,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Editar información de productos</div>
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-header text-center">Editar información de productos</div>
     
                     <div class="card-body" style="width: 400px; margin:auto;">
                         <form action="{{route('productos.update',$producto->id)}}" method="POST">
@@ -52,7 +52,8 @@
                                 <input type="number" step="0.01" name="precio" value="{{$producto->precio}}" class="form-control" >
                             </div>
                             <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="btn" class="btn btn-danger">Cancelar</button>
+                            <a href="/productos" class="btn btn-danger">Cancelar</a>
+
                         </form>
                     </div>
                 </div>

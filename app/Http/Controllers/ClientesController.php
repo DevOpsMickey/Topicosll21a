@@ -45,12 +45,16 @@ class ClientesController extends Controller
     public function store(Request $request)
     {
 
-        if (request('name') == '' || request('email') == ''){
+        if (request('name') == '' || request('email') == '' || request('pais') == "" || request('estado') == '' || request('ciudad') == '' || request('direccion') == ''){
             return redirect('/clientes/create');
         }else{
             Clientes::create([
                 'name' => request('name'),
                 'email' => request('email'),
+                'pais' => request('pais'),
+                'estado' => request('estado'),
+                'ciudad' => request('ciudad'),
+                'direccion' => request('direccion'),
                 'phone_number' => request('tel'),
 
             ]);
@@ -98,6 +102,10 @@ class ClientesController extends Controller
         
         $cliente->name = $request->get('name');
         $cliente->email = $request->get('email');
+        $cliente->pais = $request->get('pais');
+        $cliente->estado = $request->get('estado');
+        $cliente->ciudad = $request->get('ciudad');
+        $cliente->direccion = $request->get('direccion');
 
         $cliente->update();
         
