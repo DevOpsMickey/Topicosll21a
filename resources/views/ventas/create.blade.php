@@ -14,7 +14,7 @@
             <div class="col-md-5">
                 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="card-header text-center">Ingresa la información de la venta</div>
-    
+                    
                     <div class="card-body">
 
                         <form action="{{route('ventas.store')}}" method="POST">

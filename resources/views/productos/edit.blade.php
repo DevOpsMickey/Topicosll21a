@@ -14,33 +14,26 @@
             <div class="col-md-8">
                 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                     <div class="card-header text-center">Editar información de productos</div>
-    
+                    <?php
+                    use App\Models\Proveedor;
+                    $proveedores = Proveedor::all();
+                    ?>
                     <div class="card-body" style="width: 400px; margin:auto;">
                         <form action="{{route('productos.update',$producto->id)}}" method="POST">
                             @csrf
                             @method('put')
-                            <?php 
-                                $data = DB::select('select * from proveedors');
-                            ?>
+                            
                             <div class="form-group">
                                 <label for="proveedor">Proveedor:</label>
                                 <select class="form-control" name="proveedor" >
                                     <option value="0"> Selecciona una opcion</option>
-                                    <?php 
-                                        foreach ($data as $proveedor) {
-                                            if ($producto->idProveedor == $proveedor->id) {
-                                                    echo '<option 
-                                                value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->id)).'" selected>'.
-                                                str_replace('"', "", json_encode($proveedor->name)).'   
-                                                </option>';
-                                            }else{
-                                                echo '<option 
-                                                value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->id)).'">'.
-                                                str_replace('"', "", json_encode($proveedor->name)).'   
-                                                </option>';
-                                            }
-                                        }    
-                                    ?>
+                                    @foreach($proveedores as $proveedor)
+                                        @if($proveedor->id == $producto->idProveedor)         
+                                        <option value="{{$proveedor->id}}" selected> {{$proveedor->name}}</option>
+                                        @else
+                                        <option value="{{$proveedor->id}}"> {{$proveedor->name}}</option>      
+                                        @endif
+                                   @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

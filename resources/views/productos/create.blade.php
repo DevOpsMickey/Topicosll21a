@@ -15,26 +15,22 @@
                     <div class="card-header text-center">Ingresa la información del producto</div>
     
                     <div class="card-body">
-
+                        <?php
+                        use App\Models\Proveedor;
+                        $proveedores = Proveedor::all();
+                        ?>
                         <form action="{{route('productos.store')}}" method="POST">
                             @csrf
-                        <?php 
-                            $data = DB::select('select * from proveedors');
-                        ?>
-                        <div class="form-group">
-                            <label for="proveedor">Proveedor:</label>
-                            <select class="form-control" name="proveedor" required>
-                                <option value="0"> Selecciona una opcion</option>
-                                <?php 
-                                    foreach ($data as $proveedor) {
-                                        echo '<option 
-                                        value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->id)).'">'.
-                                        str_replace('"', "", json_encode($proveedor->name)).'   
-                                        </option>';
-                                    }    
-                                ?>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label for="proveedor">Proveedor:</label>
+                                <select class="form-control" name="proveedor" >
+                                    <option value="0"> Selecciona una opcion</option>
+                                    @foreach($proveedores as $proveedor)
+                                        <option value="{{$proveedor->id}}"> {{$proveedor->name}}</option>      
+                                   @endforeach
+                                </select>
+                            </div>
+                    
                         <div class="form-group">
                             <label for="name">Nombre del producto:</label>
                             <input type="text" class="form-control" name="name" placeholder="Ingresa el nombre del producto"  required>

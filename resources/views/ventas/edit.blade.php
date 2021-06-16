@@ -19,50 +19,36 @@
                         <form action="{{route('ventas.update',$venta->id)}}" method="POST">
                         @csrf
                         @method('put')
-                        <?php 
-                        $clientes = DB::select('select * from clientes');
-                        $productos = DB::select('select * from productos');
+                        <?php
+                        use App\Models\Productos;
+                        use App\Models\Clientes;
+                        $clientes = Clientes::all();
+                        $productos = Productos::all();
                         ?>
-                        <div class="form-group">
+                         <div class="form-group">
                             <label for="cliente">Cliente:</label>
                             <select class="form-control" name="cliente" >
                                 <option value="0"> Selecciona una opcion</option>
-                                <?php 
-                                    foreach ($clientes as $cliente) {
-                                        if ($venta->idCliente == $cliente->id) {
-                                                echo '<option 
-                                            value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->id)).'" selected>'.
-                                            str_replace('"', "", json_encode($cliente->name)).'   
-                                            </option>';
-                                        }else{
-                                            echo '<option 
-                                            value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($cliente->id)).'">'.
-                                            str_replace('"', "", json_encode($cliente->name)).'   
-                                            </option>';
-                                        }
-                                    }    
-                                ?>
+                                @foreach($clientes as $cliente)
+                                    @if($cliente->id == $venta->idCliente)         
+                                    <option value="{{$cliente->id}}" selected> {{$cliente->name}}</option>
+                                    @else
+                                    <option value="{{$cliente->id}}"> {{$cliente->name}}</option>      
+                                    @endif
+                               @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="proveedor">Producto:</label>
+                            <label for="producto">Producto:</label>
                             <select class="form-control" name="producto" >
                                 <option value="0"> Selecciona una opcion</option>
-                                <?php 
-                                    foreach ($productos as $producto) {
-                                        if ($venta->idProducto == $producto->id) {
-                                                echo '<option 
-                                            value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($producto->id)).'" selected>'.
-                                            preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($producto->nombreProducto)).'   
-                                            </option>';
-                                        }else{
-                                            echo '<option 
-                                            value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($producto->id)).'">'.
-                                            preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($producto->nombreProducto)).'   
-                                            </option>';
-                                        }
-                                    }    
-                                ?>
+                                @foreach($productos as $producto)
+                                    @if($producto->id == $venta->idProducto)         
+                                    <option value="{{$producto->id}}" selected> {{$producto->nombreProducto}}</option>
+                                    @else
+                                    <option value="{{$producto->id}}"> {{$producto->nombreProducto}}</option>      
+                                    @endif
+                               @endforeach
                             </select>
                         </div>
                         <div class="form-group">
