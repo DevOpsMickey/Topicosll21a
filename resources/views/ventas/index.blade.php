@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <h2>Lista de ventas actuales <a href="{{route('ventas.create')}}"> <button type="button" class="btn btn-success float-right">Agregar venta</button></a> </h2> 
+  <h2>Lista de ventas<a href="{{route('ventas.create')}}"> <button type="button" class="btn btn-success float-right">Agregar venta</button></a> </h2> 
   <h6>
     @if($search and !empty($search) and count($ventas) > 0 )
       <div class="alert alert-success" role="alert">

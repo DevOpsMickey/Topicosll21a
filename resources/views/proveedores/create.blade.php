@@ -49,7 +49,8 @@
                 
                             </div>
                             <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="btn" class="btn btn-danger">Cancelar</button>
+                            <a href="/proveedor" class="btn btn-danger">Cancelar</a>
+                            
                         </form>
 
                     </div>

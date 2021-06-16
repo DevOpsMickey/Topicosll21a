@@ -29,7 +29,7 @@
                                     foreach ($data as $proveedor) {
                                         echo '<option 
                                         value="'.preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->id)).'">'.
-                                        preg_replace("/[^a-zA-Z0-9]+/", "", json_encode($proveedor->name)).'   
+                                        str_replace('"', "", json_encode($proveedor->name)).'   
                                         </option>';
                                     }    
                                 ?>
